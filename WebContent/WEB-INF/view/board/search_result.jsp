@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -24,7 +25,7 @@ h5{font-family: 'Single Day', cursive; }
 <div class="container" style="margin-top:50px; margin-bottom:50px;">
 	<div class="card shadow-none">
 		<div class="card-body">
-			<h5 class="card-title">計 ${search_result_count }個の結果が出ました。</h5>
+			<h5 class="card-title">Total ${search_result_count } articles.</h5>
 		
 			<table class="table table-hover" id='board_list'>
 				<thead>

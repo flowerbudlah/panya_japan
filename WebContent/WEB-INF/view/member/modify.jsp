@@ -7,21 +7,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
 </head>
 <body>
 <!-- 상단 -->
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp"/>
 <!-- 본문 -->
-<div class="container" style="margin-top:50px">
+<div class="container" style="margin-top:50px; margin-bottom:50px;">
 	<div class="row">
 		<div class="col-sm-3"></div>
 		<div class="col-sm-7"><h5>会員情報の変更<br>(This page is the form to change your membership information. )</h5>
@@ -29,37 +29,37 @@
 				<div class="card-body">
 					<form:form action='${root }member/modify_proc' method='post' modelAttribute="modifyMemberDTO">
 						<div class="form-group">
-							<form:label path="member_name">氏名</form:label>
+							<form:label path="member_name">Name</form:label>
 							<form:input path="member_name" class='form-control' />
 						</div>
 						<div class="form-group">
-							<form:label path="member_id">会員ID</form:label>
+							<form:label path="member_id">ID</form:label>
 							<form:input path="member_id" class='form-control' readonly="true"/>
 						</div>
 						<div class="form-group">
-							<form:label path="member_pw">パスワード</form:label>
+							<form:label path="member_pw">Password</form:label>
 							<form:password path="member_pw" class='form-control'/>
 							<form:errors path='member_pw' style='color:red'/>
 						</div>
 						<div class="form-group">
-							<form:label path="member_pw2">パスワード確認</form:label>
+							<form:label path="member_pw2">Checking above Password</form:label>
 							<form:password path="member_pw2" class='form-control'/>
 							<form:errors path='member_pw2' style='color:red'/>
 						</div>
 							<div class="form-group">
-							<form:label path="member_tel">電話番号(Telephone)</form:label>
+							<form:label path="member_tel">Telephone Number</form:label>
 							<form:input path="member_tel" class='form-control'/>
 						</div>
 						<div class="form-group">
 						<%--이메일 --%>
-							<form:label path="member_email">メールアドレ(E-mail Address)</form:label>
+							<form:label path="member_email">E-mail Address</form:label>
 							<form:input path="member_email" class="form-control"/>
-			
+	
 						<%--이메일 끝 --%>	
 						</div>
 					
 						<div class="form-group">
-							<form:label path="member_address">住所(Address)</form:label>
+							<form:label path="member_address">Address</form:label>
 							<div class="input-group-append">
 								<form:input path="postcode" class='form-control' />&nbsp;
 								<input type="button" class="btn btn-danger btn-sm" id="searchAdd" value="郵便番号を 探す" >
@@ -69,18 +69,18 @@
 						</div>
 						<div class="form-group">
 							<form:label path="question">
-							IDまたはパスワードを忘れた場合は、<br>忘れたIDとパスワードを探すためのヒント質問を下に入力してください。
+							Please write the sentence questions to get the correct ID and Password in case of forgetting Your ID and Password.
 							</form:label>
 							<form:input path="question" class='form-control'/>
 						</div>
 						<div class="form-group">
-							<form:label path="answer">上の質問に対する答え</form:label>
+							<form:label path="answer">The response with above question</form:label>
 							<form:input path="answer" class='form-control' />
 						</div>
 						<br><br>
 						<div class="form-group">
 							<div class="text-right">
-								<form:button class='btn btn-danger'>情報変更完了</form:button>
+								<form:button class='btn btn-danger'>Completation of modification</form:button>
 							</div>
 						</div>
 					</form:form>

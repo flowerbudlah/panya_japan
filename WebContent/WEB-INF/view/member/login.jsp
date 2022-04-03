@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -18,43 +19,41 @@
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp" />
 <!--  -->
-<div class="container" style="margin-top:50px">
+<div class="container" style="margin-top:100px; margin-bottom:100px;">
 	<div class="row">
-		<div class="col-sm-4"></div>
-		<div class="col-sm-5">
+		<div class="col-lg-4 col-sm-6"></div>
+		<div class="col-sm-4">
 			<div class="card shadow-none">
 				<div class="card-body">
-                  <c:if test="${failure == true }" >
-					<div class="alert alert-danger">
-	
-					  <p>入力された会員ＩＤ、パスワードが<br>見つかりません。</p>
-					</div>
-                  </c:if>
-						<form:form action="${root }member/login_proc" method="post" modelAttribute="tmpLoginMemberDTO" >
-						<div class="form-group">
-							<form:label path="member_id">会員ID</form:label>
-							<form:input path="member_id" class="form-control"/>
-                            <form:errors path="member_id" style="color: red;"/>
-						</div>
-						<div class="form-group">
-							<form:label path="member_pw">パスワード(Password)</form:label>
-							<form:password path="member_pw" class="form-control"/>
-                            <form:errors path="member_pw" style="color: red;"/>
-						</div>
-						<div class="form-group text-right">
-							<a href="${root }member/find_id_form" style="">会員ID</a>または
-							<a href="${root }member/find_password_question" style="">パスワード</a>
-							忘れはこちら<br><br>
-							<form:button class="btn btn-danger">ログイン(Login)</form:button><br>
-						</div>
-						</form:form>
+				<c:if test="${failure == true }" >
+				<div class="alert alert-danger">
+					<p> The ID and password you input do not match. Please check again.</p>
+				</div>
+				</c:if>
+				<form:form action="${root }member/login_proc" method="post" modelAttribute="tmpLoginMemberDTO" >
+				<div class="form-group">
+					<form:label path="member_id">ID</form:label>
+					<form:input path="member_id" class="form-control"/>
+					<form:errors path="member_id" style="color: red;"/>
+				</div>
+				<div class="form-group">
+					<form:label path="member_pw">Password</form:label>
+					<form:password path="member_pw" class="form-control"/>
+					<form:errors path="member_pw" style="color: red;"/>
+				</div>
+				<div class="form-group text-right">
+					<font color=red>Help</font><br>
+					<a href="${root }member/find_id_form" style="">Forgot your Id ?</a><br>
+					<a href="${root }member/find_password_question" style="">Forgot your Password?</a><br><br>
+					<form:button class="btn btn-danger">Login</form:button>
+				</div>
+				</form:form>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-3"></div>
 	</div>
 </div>
-
 <!-- bottom information -->
 <c:import url="/WEB-INF/view/include/bottom_info.jsp" />
 </body>

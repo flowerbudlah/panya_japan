@@ -35,12 +35,8 @@ a:visited{ color: black;  }
         		<li><a href="${root }member/login" style="color:black;">ログイン</a></li>
         	</c:otherwise>    
 		</c:choose>
-		
 	</ul>
 </div>
-
-
 </nav>
-
 </body>
 </html>

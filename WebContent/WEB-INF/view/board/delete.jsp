@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -16,8 +17,8 @@
 <!-- 본문내용 -->
 <div class="container" style="margin-top:100px; margin-bottom:100px">
 <div class="text-center">
-<p>The article has been deleted. その文が削除されました。</p>
-<p><a href="${root }board/main?board_idx=${board_idx}">戻す</a></p>
+<p>The article has been deleted.</p>
+<p><a href="${root }board/main?board_idx=${board_idx}">Go Back</a></p>
 </div>
 </div>
 <!-- 하단정보 -->

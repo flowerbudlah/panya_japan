@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -15,11 +16,11 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <style>
 table{border: 1px solid lightgray; }
-th{color: white; background-color: salmon; text-align:center; }
+th{color: white; background-color: #df4759; text-align:center; }
 .sender{  }
 .recipient{ background-color: whitesmoke; }
 .title{ }
-h5:hover{color: salmon;}
+h5:hover{color: #df4759;}
 h5:active{color: gray;}
 </style>
 </head>
@@ -30,14 +31,12 @@ h5:active{color: gray;}
 <div class="container" style="margin-top: 50px; margin-bottom:50px;" align="center">
 <!--본문내용-->
 <c:set value="${cartMap.cartList}" var="cartList"/>
-	<h5><strong>${loginMemberDTO.member_name }様の買い物かご !!
-	<img src="${root }image/cart.png" alt="장바구니" width="50px;"></strong>
-	</h5> 
+	<h5><strong>${loginMemberDTO.member_name }'s CartList</strong></h5> 
 	<table class="table table-hover" style="width: 100%; margin: auto; border-bottom: 1px solid #D5D5D5;">
 		<thead>
 			<tr>
 				<th style="text-align: center;"></th>
-				<th colspan="2" style="text-align: center;">商品名</th>
+				<th colspan="2" style="text-align: center;">Product Name</th>
 				<th style="text-align: center;">Unit Price</th>
 				<th style="text-align: center;">Quantity</th>
 				<th style="text-align: center;">Total Price</th>
@@ -68,7 +67,7 @@ h5:active{color: gray;}
 							<form action='${root }mypage/cart/cartlist/updateAmount' method='post' modelAttribute="updateAmountCartDTO">
 								<input type="hidden" name="cart_idx" value="${vo.cart_idx }"/>
 								<input type="number" name="amount" value="${vo.amount }" min="1" max="999"/>個(or set)
-							<button type="submit" class="btn btn-link" >変更</button>
+							<button type="submit" class="btn btn-link" >Change</button>
 							</form>
 							<%--수량변경 관련 끝 --%>
 							</td>
@@ -76,12 +75,18 @@ h5:active{color: gray;}
 								<fmt:formatNumber value="${vo.price*vo.amount }" pattern="###,###,###"/> ￦
 							</td>
 							<td style="text-align: center;">
-								<a href="${root }mypage/cart/cartlist/delete?cart_idx=${vo.cart_idx}">削除</a>
+								<a href="${root }mypage/cart/cartlist/delete?cart_idx=${vo.cart_idx}">Delete</a>
 							</td>
 						</tr>
 					</c:forEach>
 				</c:when>
-				<c:otherwise><tr><td colspan="7"><p>買い物かごには物がありません。</p></td></tr></c:otherwise>
+				<c:otherwise>
+				<tr>
+					<td colspan="7">
+						<p>Now Your CartList is empty.</p>
+					</td>
+				</tr>
+				</c:otherwise>
 			</c:choose>
 		</tbody>
 	</table>
@@ -91,13 +96,13 @@ h5:active{color: gray;}
 	<tr>
 		<th style="text-align: center;" colspan="7">
 			<div class="text-right">
-			品物の値段の合計: <fmt:formatNumber value="${paymentMoney }" pattern="###,###,###"/> ￦<br>
-			送料(Delivery Fee): 
+			Total Price of Ordered Goods : <fmt:formatNumber value="${paymentMoney }" pattern="###,###,###"/> ￦<br>
+			Delivery Fee: 
 			<c:choose>
 				<c:when test="${cartList != null}"><%--장바구니에 물건이 들어있다. --%>3,000</c:when>
 				<c:otherwise>0</c:otherwise>
 			</c:choose>￦<br>
-			決済金額: 
+			Payament Price: 
 			<c:choose>
 				<c:when test="${cartList != null}"><%--장바구니에 물건이 들어있다. --%>	
 					<fmt:formatNumber value="${paymentMoney+3000}" pattern="###,###,###"/>
@@ -113,11 +118,7 @@ h5:active{color: gray;}
 <input type="hidden" name="member_id" value="${loginMemberDTO.member_id }"/>
 <tbody>
 	<tr class="sender">
-		<td colspan="2">
-		
-		
-			<input type="hidden" name="paymentprice" value="${paymentMoney+3000}"/><%--배송비 포함한 결제금액 --%>
-		</td>
+		<td colspan="2"><input type="hidden" name="paymentprice" value="${paymentMoney+3000}"/><%--배송비 포함한 결제금액 --%></td>
 		<td colspan="2">Sender's Name: </td>
 		<td colspan="3">
 			<input type="text" style="width:150px;" name="sender_name" id="sender_name" required="required"/>
@@ -171,10 +172,10 @@ h5:active{color: gray;}
 	</tr>
 	<tr>
 		<td colspan="2"></td>
-		<td colspan="2">決済方法</td>
+		<td colspan="2">Payment Method</td>
 		<td colspan="3">
-			<input type="radio" name="payment_method" value="クレジットカード">クレジットカード(Credit card)<br>
-			<input type="radio" name="payment_method" value="口座に入金">口座に入金
+			<input type="radio" name="payment_method" value="クレジットカード">Credit card<br>
+			<input type="radio" name="payment_method" value="口座に入金">Account deposit
 		</td>
 	</tr>
 

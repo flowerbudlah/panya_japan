@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <style>
 th{color: white; background-color: salmon; text-align: center; width: 250px;  }
@@ -23,7 +24,7 @@ h4:active{color: gray;}
 <!--상단메뉴 -->
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp" />
-<div class="container text-center" style="margin-top:50px">
+<div class="container text-center" style="margin-top:100px; margin-bottom:100px;">
 <!-- 내용 -->
 <h4>${loginMemberDTO.member_name } お客様の<strong>注文·決済·配送情報</strong>です。</h4>
 <c:choose>

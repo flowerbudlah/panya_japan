@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -32,9 +33,9 @@
 <!-- 본문내용 -->
 <div class="container" style="margin-top:100px; margin-bottom:100px">
 <div class="text-center">
-<p>退会をお望みですか？ </p>
-<p>退会前に情報を確認するため、あなたのパスワード(Your Password)を入力してください。 </p>
-<p>パン屋をご利用いただきありがとうございます。</p>
+<p>Would you like to withdraw at this mall? </p>
+<p>Please enter your password once to confirm your information before leaving at this mall!</p>
+<p>Thank you very much for your stay.</p>
 <form action="${root }member/delete_proc" method="post">
 	<input type="hidden" id="member_id" name="member_id" value="${loginMemberDTO.member_id}"/>
 	
@@ -43,8 +44,8 @@
 	</div>
 				
 	<div class="form-group">
-		<button class="btn btn-success" type="submit" id="submit">退会</button>
-		<button class="cencle btn btn-danger" type="button">退会 取り消し</button>
+		<button class="btn btn-success" type="submit" id="submit">Withdraw</button>
+		<button class="cencle btn btn-danger" type="button">Cancel</button>
 	</div>
 </form>
 	<div>

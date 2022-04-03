@@ -6,21 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <style>
-thead{ background-color: salmon;  }
+thead{ background-color: #df4759;  }
 h2{font-family: 'Single Day', cursive; }
 </style>
 </head>
 <body>
-<!-- 상단 메뉴 부분 -->
+<!-- Upper menu -->
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp" />
-<!-- 게시글 리스트 -->
+<!-- entire post List-->
 <div class="container" style="margin-top:50px; margin-bottom:50px;">
 	<div class="card shadow-none">
 		<div class="card-body">
@@ -37,10 +38,12 @@ h2{font-family: 'Single Day', cursive; }
 				</thead>
 				<tbody id="boardtable">
                   <c:forEach var="postDTO" items="${postList }" >
-                    
 					<tr>
 						<td class="text-center d-none d-md-table-cell">${postDTO.post_idx } </td>
-						<td><a href='${root }board/read?board_idx=${board_idx }&post_idx=${postDTO.post_idx}&page=${page}'> ${postDTO.post_subject}
+						<td>
+							<a href='${root }board/read?board_idx=${board_idx }&post_idx=${postDTO.post_idx}&page=${page}'> ${postDTO.post_subject}
+								<!-- A small picture image appears in title of the notification board in case of uploading photo file -->
+								<c:if test="${postDTO.post_file != null }"><img src="${root }image/uploadingPhoto.png" width=20px;></c:if>
 								<c:if test="${postDTO.reply_cnt > 0}"><span style="color: red;">[${postDTO.reply_cnt}]</span></c:if>
 							</a>
 						</td>
@@ -48,11 +51,10 @@ h2{font-family: 'Single Day', cursive; }
 						<td class="text-center d-none d-md-table-cell">${postDTO.post_date}</td>
 						<td class="text-center d-none d-md-table-cell">${postDTO.post_read_count}</td>
 					</tr>
-        
                   </c:forEach>
 				</tbody>
 			</table>
-<!-- 페이징 -->			
+<!-- 페이징(Paging) -->			
 <div class="d-none d-md-block">
 	<ul class="pagination justify-content-center">
 		<c:choose>
@@ -88,7 +90,7 @@ h2{font-family: 'Single Day', cursive; }
 		</c:choose>
 	</ul>
 </div>
-	
+<!-- 페이징(Paging) 끝 -->	
 <c:choose>
 	<c:when test="${loginMemberDTO.memberLogin == true }">			
 		<c:choose>
@@ -110,12 +112,10 @@ h2{font-family: 'Single Day', cursive; }
 					<a href="${root }board/write?board_idx=${board_idx }" class="btn btn-danger" style="color:white">Uploading</a>
 				</div>
 			</c:otherwise>
-			
 		</c:choose>
 	</c:when>
 	<c:otherwise><%--로그인을 안한상태면 글쓰기 버튼도 안보인다.  --%> </c:otherwise>    
 </c:choose>
-
 <!-- 검색 기능 -->			
 <form action="${root }board/search_result" method="get" class="text-center">
 	<select name="type">
@@ -123,12 +123,11 @@ h2{font-family: 'Single Day', cursive; }
 		<option value="post_text">Content</option>
 		<option value="member_name">Writer</option>
 	</select>
-		<input type="hidden" name="post_board_idx" value="${board_idx}" required="required"/>
-		<input type="text" name="keyword" value="" required="required"/>
-<input type="submit" value="Search" class="btn btn-danger btn-sm" /> 
+	<input type="hidden" name="post_board_idx" value="${board_idx}" required="required"/>
+	<input type="text" name="keyword" value="" required="required"/>
+	<input type="submit" value="Search" class="btn btn-danger btn-sm" /> 
 </form>
 <!-- 검색기능끝 -->
-
 		</div>
 	</div>
 </div>

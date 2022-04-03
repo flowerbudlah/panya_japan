@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <style>
 .orderInfo { border:5px dotted lightgray; padding:10px 20px; margin:20px 0;}
@@ -78,9 +79,7 @@ td{width:700px; text-align: left; }
     	</tr>
     		<tr>
     		<th><span>Memo: </span></th>
-    		<td style="color:red;">
-    			${allInformationAboutOrder.memo}
-    		</td>
+    		<td style="color:red;">${allInformationAboutOrder.memo}</td>
     	</tr>
     </table>
     </c:if>

@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>회원가입</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -17,7 +18,9 @@
 //아이디 중복체크하는 제이쿼리와 아직스
 function checkID(){
 	const member_id = $("#member_id").val()
-	if(member_id.length == 0){ alert('入力して ください。'); return; }
+	if(member_id.length == 0){
+		alert('Please write ID.'); return; 
+	}
     
     $.ajax({
       url: '${root}member/checkID/'+member_id, 
@@ -44,7 +47,7 @@ function resetInputMemberID(){	$("#inputMemberID").val('false')}
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp" />
 <!-- 회원가입 폼 -->
-<div class="container" style="margin-top:50px">
+<div class="container" style="margin-top:50px; margin-bottom:50px">
 	<div class="row">
 		<div class="col-sm-3"></div>
 		<div class="col-sm-7"><h5>会員登録(Membership form)</h5>
@@ -53,62 +56,58 @@ function resetInputMemberID(){	$("#inputMemberID").val('false')}
 			<form:form action="${root }member/join_proc" method="post" modelAttribute="joinMemberDTO">
 			<form:hidden path="inputMemberID" />
 				<div class="form-group" >
-					<form:label path="member_name">氏名</form:label>
+					<form:label path="member_name">Name</form:label>
 					<form:input path="member_name" class="form-control"/>
 					<form:errors path="member_name" style="color:red;" />
 				</div>  
 				<div class="form-group" >
-					<form:label path="member_id">会員ID</form:label>
+					<form:label path="member_id">ID</form:label>
 				<div class="input-group">
 					<form:input path="member_id" class="form-control" onkeypress="resetInputMemberID()"/>
 					<div class="input-group-append">
-						<button type="button" class="btn btn-danger" onClick="checkID();">IDの重複確認</button>
+						<button type="button" class="btn btn-danger" onClick="checkID();">Check duplicate ID</button>
 					</div>
 				</div>
 					<form:errors path="member_id" style="color:red;" />
 				</div>                
 				<div class="form-group">
-					<form:label path="member_pw">パスワード</form:label>
+					<form:label path="member_pw">Password</form:label>
 					<form:password path="member_pw" class="form-control" />
 					<form:errors path="member_pw" style="color:red;" />
 				</div>                   
 				<div class="form-group">
-					<form:label path="member_pw2">パスワード確認</form:label>
+					<form:label path="member_pw2">Checking above Password</form:label>
 					<form:password path="member_pw2" class="form-control" />
 					<form:errors path="member_pw2" style="color:red;" />
 				</div> 
 				<div class="form-group">
-					<form:label path="member_tel">電話番号(Telephone)</form:label>
+					<form:label path="member_tel">Telephone Number</form:label>
 					<form:input path="member_tel" class="form-control"/>
 				</div> 
-				
 				<div class="form-group">
-                    <form:label path="member_email">メールアドレ(E-mail Address)</form:label>
+                    <form:label path="member_email">E-mail Address</form:label>
 					<form:input path="member_email" class="form-control"/>
 				</div> 
-				
-				
-				<!-- 주소-->
 				<div class="form-group">
-					<form:label path="member_address">住所(Address)</form:label>
+					<form:label path="member_address">Address</form:label>
 					<div class="input-group-append">
-						<input type="text" id="postcode" name="postcode" placeholder="郵便番号(Postcode)" class="form-control">&nbsp;
-						<input type="button" class="btn btn-danger btn-sm" id="searchAdd" value="郵便番号を 探す" >
+						<input type="text" id="postcode" name="postcode" placeholder="Postcode" class="form-control">&nbsp;
+						<input type="button" class="btn btn-danger btn-sm" id="searchAdd" value="searching PostCode" >
 					</div>
-					<form:input path="member_address" placeholder="詳しい住所(Detail Address)" id="roadAddress" class="form-control"/>
+					<form:input path="member_address" placeholder="Detail Address" id="roadAddress" class="form-control"/>
 				</div>
 				<br>
 				<div class="form-group"> 
-					<form:label path="question">IDまたはパスワードを忘れた場合は、<br>忘れたIDとパスワードを探すためのヒント質問を下に入力してください。</form:label>
+					<form:label path="question">Please write the sentence questions to get the correct ID and Password in case of forgetting Your ID and Password. </form:label>
 					<form:input path="question" class="form-control"/>
 				</div> 
                  <div class="form-group">
-					<form:label path="answer">上の質問に対する答え</form:label>
+					<form:label path="answer">The response with above question</form:label>
 					<form:input path="answer" class="form-control"/>
 				</div>   
 				<br><br>   
 				<div class="text-right">
-					<form:button class="btn btn-danger">会員登録完了</form:button>
+					<form:button class="btn btn-danger">Complete</form:button>
 				</div>
 			</form:form>
 		</div>
@@ -149,7 +148,6 @@ $("#searchAdd").click(function(event) {
 	event.preventDefault();
 	postcode();
 });
-
 </script>
 </body>
 </html>
