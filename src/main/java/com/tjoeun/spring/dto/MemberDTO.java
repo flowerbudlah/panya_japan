@@ -1,5 +1,7 @@
 package com.tjoeun.spring.dto;
 
+import java.util.Date;
+
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -29,12 +31,12 @@ public class MemberDTO {
 	private String member_email; 	
 	private String member_tel; 	
 	private String member_address; 	
-	private int postcode; //우편번호 
+	private int postcode; 
 	
 	private String question; 
 	private String answer; 
 	
-	private String registerDate; //Registration date
+	private Date registerDate; //Registration date
 	
 	private boolean inputMemberID;
 	private boolean inputMemberEMAIL;
@@ -45,9 +47,10 @@ public class MemberDTO {
 		this.inputMemberEMAIL = false; 
 	}
 	
-	//관리자페이지에서 검색
-	private String keyword;//키워드 
-	private String type; //검색종류
+	private String keyword;
+	private String type; 
+	
+	
 	
 }
 

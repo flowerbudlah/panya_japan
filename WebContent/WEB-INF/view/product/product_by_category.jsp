@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
@@ -41,7 +42,7 @@ table{ margin: 0 auto; width:1200px; position: relative; font-family: 'Single Da
         		<div class="test_hover">
     				<h3>${productDTO.product_name}</h3>
     				<h1><fmt:formatNumber value="${productDTO.product_price}" pattern="###,###,###"/>￦</h1>
-    				<h1><a href="${root }product/product_detail?product_idx=${productDTO.product_idx}">買いに行く！</a></h1>
+    				<h1><a href="${root }product/product_detail?product_idx=${productDTO.product_idx}">Let's go buy it!!</a></h1>
 				</div>
        		</li>
         </div>

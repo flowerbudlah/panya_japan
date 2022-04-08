@@ -53,8 +53,9 @@ public class AdminController {
 		return "redirect:/admin/order_payment_delivery";
 	}
 	
-	//회원검색
-	@GetMapping("/search_result")
+
+	//searching member of this shopping mall. 
+	@GetMapping("/search_result") 
 	private String getSearchList(
 		@RequestParam("type") String type, 
 		@RequestParam("keyword") String keyword,
@@ -64,25 +65,16 @@ public class AdminController {
 			searchResultMemberDTO.setType(type); 
 			searchResultMemberDTO.setKeyword(keyword); 
 
-		//검색결과 수 
+		//the number of searching result. 
 		int search_result_count = adminService.numberOfResultSearchingMember(searchResultMemberDTO);
 		model.addAttribute("search_result_count", search_result_count);
 		
-		//검색결과 리스트 
+		//the member List of searching result
 		List<MemberDTO> memberList = adminService.resultSearchingMember(searchResultMemberDTO);
 		model.addAttribute("memberList", memberList);
 		
 			return "admin/search_result";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

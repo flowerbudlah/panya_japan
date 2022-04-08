@@ -1,9 +1,6 @@
 --Product's table
 drop sequence product_seq; 
-create sequence product_seq
-start with 33
-increment by 1
-minvalue 0;
+create sequence product_seq start with 33 increment by 1 minvalue 0;
 
 drop table product_table purge;
 create table product_table(
@@ -15,10 +12,12 @@ create table product_table(
     expiration_date varchar2(100), 
     product_img varchar2(100) 
 );
+delete from product_table; 
+commit; 
 
-insert into product_table values(1, 'バゲット', 2500, 1, '常温保管', '製造日から10日', 'baguettes.png');
-insert into product_table values(2,'しこしこベーグル', 2500, 1, '常温保管', '製造日から10日', 'begel.png');
-insert into product_table values(3,'栗食パン', 4000, 1, '直射日光を避け、涼しい場所に保管（夏期冷蔵保管）', '製造日から7日', 'chestnut.png'); 
+insert into product_table values(1, 'Baguette', 3000, 1, 'please, Store at room temperature. ', '5 days from the date of manufacture', 'baguettes.png');
+insert into product_table values(2,'Chewy bagel', 2500, 1, 'please, Store at room temperature.', '5 days from the date of manufacture', 'begel.png');
+insert into product_table values(3,'chestnuts bread', 5000, 1, 'Refrigerated storage', '5 days from the date of manufacture', 'chestnut.png'); 
 insert into product_table values(4, 'アーモンドクリームのチーズ', 2000, 1, '直射日光を避け、涼しい場所に保管（夏期冷蔵保管)', '製造日から5日', 'cream_cheese_amond.png');
 insert into product_table values(5, 'りんごクリームのチーズ', 2000, 1, '直射日光を避け、涼しい場所に保管（夏期冷蔵保管)', '製造日から5日', 'cream_cheese_apple.png');
 insert into product_table values(6, 'クロワッサン', 1000, 1, '常温保管', '製造日から10日', 'croissant.png');
@@ -50,11 +49,3 @@ insert into product_table values(31,'スコーン(2個/Set)', 4000, 3, '常温�
 insert into product_table values(32, 'ありがとな手作りビスケット(10個/Set)', 6000, 3, '常温保管', '製造日から10日', 'thanks.png'); 
 select * from product_table order by product_idx;
 commit; 
-
-
-
-
-
-
-
-

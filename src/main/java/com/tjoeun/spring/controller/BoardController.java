@@ -29,6 +29,7 @@ import com.tjoeun.spring.service.ReplyService;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
+	
 	@Autowired
 	private BoardService boardService;
 	@Autowired
@@ -38,7 +39,8 @@ public class BoardController {
 	@Lazy
 	private MemberDTO loginMemberDTO;
 	
-	//게시판 메인화면
+	
+	//The board main 
 	@GetMapping("/main")
 	public String main(@RequestParam("board_idx") int board_idx, @RequestParam(value="page", defaultValue="1") int page, Model model) {
 		model.addAttribute("board_idx",board_idx);
@@ -48,7 +50,7 @@ public class BoardController {
 		List<PostDTO> postList = boardService.getPostList(board_idx, page);
 		model.addAttribute("postList", postList);
 				
-		//페이징
+		//paging
 		PageDTO pageDTO = boardService.getPostCnt(board_idx, page); 
 		model.addAttribute("pageDTO", pageDTO);
 		model.addAttribute("page", page);
@@ -56,7 +58,7 @@ public class BoardController {
 		return "board/main";
 	}
 		
-	//글읽기
+	//reading a post. 
 	@GetMapping("/read")
 	public String read(
 	@RequestParam("board_idx") int board_idx,
@@ -64,7 +66,7 @@ public class BoardController {
 	@RequestParam("page") int page,
 	@ModelAttribute("readPostDTO") PostDTO postDTO, Model model) {
 		
-		boardService.viewCount(postDTO.getPost_idx()); //조회수 증가 
+		boardService.viewCount(postDTO.getPost_idx()); //the raise of hits
 		PostDTO readPostDTO = boardService.getPostInfo(post_idx);
 		
 		model.addAttribute("readPostDTO", readPostDTO);
@@ -74,28 +76,26 @@ public class BoardController {
 		model.addAttribute("loginMemberDTO", loginMemberDTO);
 		model.addAttribute("page", page);
 		
-		//댓글출력 
+		//comment
 		List<ReplyDTO> reply = null;
 		reply = replyService.list(post_idx);
 		model.addAttribute("reply", reply); 
-		//이 리플은 board/read 페이지에서 반복문에서의 그것
+		
 			return "board/read";
 	}
 	
-	//글쓰기
+	//writing a post
 	@GetMapping("/write")
-	public String write(		// parameter로 들어오는 board_idx 값을 writePostDTO 에 넣어줌
-			@ModelAttribute("writePostDTO") PostDTO writePostDTO, 
-			@RequestParam("board_idx") int board_idx) {
+	public String write(@ModelAttribute("writePostDTO") PostDTO writePostDTO, @RequestParam("board_idx") int board_idx) {
 		
 			writePostDTO.setPost_board_idx(board_idx);
 			
 			return "board/write";
 	}
+	
 	@PostMapping("/write_proc")
 	public String writeProc
-	(@Valid @ModelAttribute("writePostDTO") PostDTO writePostDTO, 
-	BindingResult result, MultipartFile file) {
+	(@Valid @ModelAttribute("writePostDTO") PostDTO writePostDTO, BindingResult result, MultipartFile file) {
 		
 		if(result.hasErrors()) { 
 			return "board/write";
@@ -104,26 +104,27 @@ public class BoardController {
 			return "board/write_success";
 	}
 	
-	//글 수정은 본인만 할수 있도록
+	//Only Writer or administrator can update(or modify) the post.  
 	@GetMapping("/not_writer")
 	public String notWriter() {
 		return "board/not_writer";
 	}
-	//수정하기
+	
+	//modifing or updating the post
 	@GetMapping("/modify")
 	public String modify(
 		@RequestParam("board_idx") int board_idx,
 		@RequestParam("post_idx") int post_idx, 
-		@ModelAttribute("modifyPostDTO") PostDTO modifyPostDTO, //수정대상 그 글
+		@ModelAttribute("modifyPostDTO") PostDTO modifyPostDTO, 
 		@RequestParam("page") int page, Model model) {
 		
 		model.addAttribute("board_idx", board_idx);
 		model.addAttribute("post_idx", post_idx);
 		model.addAttribute("page", page);
 		
-		PostDTO fromDBPostDTO = boardService.getPostInfo(post_idx); //수정하고자 하는 그 글! 
+		PostDTO fromDBPostDTO = boardService.getPostInfo(post_idx); //the post that Writer want to modify 
 		
-		//수정하는 그 과정
+		//the process that the post is modified. 
 		modifyPostDTO.setPost_writer_name(fromDBPostDTO.getPost_writer_name()); 
 		modifyPostDTO.setPost_date(fromDBPostDTO.getPost_date());
 		modifyPostDTO.setPost_subject(fromDBPostDTO.getPost_subject());
@@ -135,6 +136,7 @@ public class BoardController {
 		
 			return "board/modify";
 	}
+	
 	@PostMapping("/modify_proc")
 	public String modifyProc
 	(@Valid @ModelAttribute("modifyPostDTO") PostDTO modifyPostDTO, 
@@ -149,7 +151,7 @@ public class BoardController {
 			return "board/modify_success";
 	}
 	
-	//글삭제
+	//deleting the post
 	@GetMapping("/delete")
 	public String delete
 	(PostDTO deletePostDTO, 
@@ -161,9 +163,7 @@ public class BoardController {
 			return "board/delete";
 	}
 
-	
-	
-	//게시물 검색
+	//searching the post 
 	@GetMapping("/search_result")
 	private String getSearchList(
 		@RequestParam("post_board_idx") int board_idx, 
@@ -177,15 +177,15 @@ public class BoardController {
 		searchPostDTO.setType(type); 
 		searchPostDTO.setKeyword(keyword); 
 
-		//검색결과 수 
+		//the number of searchign result
 		int search_result_count = boardService.searchResultCount(searchPostDTO);
 		model.addAttribute("search_result_count", search_result_count);
 		
-		//검색결과 리스트 
+		//The searching result  all list.
 		List<PostDTO> searchList = boardService.selectSearchList(searchPostDTO, page);
 		model.addAttribute("searchList", searchList);
 		
-		//페이징
+		//Paging 
 		PageDTO pageDTO = boardService.searchListCount(searchPostDTO, page); 
 		model.addAttribute("board_idx", board_idx);
 		model.addAttribute("pageDTO", pageDTO);
@@ -196,9 +196,6 @@ public class BoardController {
 			return "board/search_result";
 	}
 	
-	
-	
-
 	
 
 }

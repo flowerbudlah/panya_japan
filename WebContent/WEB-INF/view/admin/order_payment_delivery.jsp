@@ -45,7 +45,7 @@ td{text-align:center; border: 1px solid gray;}
 			<td style="text-align: center;"><fmt:formatNumber pattern="###,###,###" value="${allPaymentList.paymentprice-3000}"/>￦</td>
 			<td style="text-align: center;">3,000￦</td>
 			<td style="text-align: center;"><fmt:formatNumber pattern="###,###,###" value="${allPaymentList.paymentprice}"/>￦</td>
-			<td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd(E) HH:mm:ss" value="${allPaymentList.order_date}" /></td>
+			<td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd(E) HH:mm:ss" value="${allPaymentList.order_date}"/></td>
 			<td style="text-align: center;">${allPaymentList.payment_method }</td>
 			<td style="text-align: center;">
 				<form action='${root }admin/change' method='post' modelAttribute="changeDeliveryOrderDTO">

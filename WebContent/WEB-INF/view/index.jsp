@@ -7,6 +7,6 @@
 <title>JSP</title>
 </head>
 <body>
-<h1>안녕,봄아</h1>
+<h1>Hello, Spring !</h1>
 </body>
 </html>

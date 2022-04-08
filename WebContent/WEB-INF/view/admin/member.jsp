@@ -17,7 +17,7 @@ td{text-align:center; border: 1px solid gray;}
 <body>
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp" />
-<div class="container" style="margin:50px;">
+<div class="container" style="margin-top:50px; margin-bottom:50px; margin-left:10px; margin-right:10px;">
 <h5>The Page for Administrator only</h5>
 <p>Member List</p>
 <%--회원검색 --%>
@@ -30,7 +30,7 @@ td{text-align:center; border: 1px solid gray;}
 	<input type="submit" value="Search" class="btn btn-danger btn-sm" /> 
 </form>
 <!-- 검색기능끝 -->
-<table style="width: 1250px; margin: auto;">
+<table style="width: 1300px; margin: auto;">
 		<thead>
 			<tr>
 				<th style="text-align: center;">No</th>
@@ -51,9 +51,7 @@ td{text-align:center; border: 1px solid gray;}
 				<td style="text-align: center;">${allMemberList.member_tel }</td>
 				<td style="text-align: center;">${allMemberList.member_address }</td>
 				<td style="text-align: center;">${allMemberList.member_email}</td>
-				<td style="text-align: center;">
-					<fmt:formatDate pattern="yyyy-MM-dd(E) HH:mm:ss" value="${allMemberList.registerDate }" />
-				</td>
+				<td style="text-align: center;">${allMemberList.registerDate }</td>
 			</tr>
 		</c:forEach>
 		</tbody>

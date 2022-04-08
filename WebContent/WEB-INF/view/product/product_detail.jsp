@@ -8,7 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パン屋 パン屋 ♥</title>
+<title>Panya</title>
+<link rel="icon" type="image/x-icon" href="${root }image/favicon.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -29,21 +30,21 @@ $(document).ready(function() {
 	$("#select_count").on('blur', function() {
 		var amount = $(this).val();
 		var price = $("#price").val();
-		var shipping = 3000; //배송비
+		var shipping = 3000; //delivery Fee
 		var finalPrice = (amount*price) + shipping;
 
 		var str = '';
 		
-		str += '<p><strong>数量: </strong><span>&nbsp;'+amount+'個</span>&nbsp;&nbsp;&nbsp;';	
-		str += '<strong>送料: </strong><span>&nbsp;'+shipping+'￦</span>&nbsp;&nbsp;&nbsp;';
-		str	+= '<strong>価格: </strong><span>&nbsp;' + price + '￦</span></p>';
-		str += '<h5><strong>決済金額:<span>&nbsp;' + finalPrice + '￦</strong></span></h5>'; 
+		str += '<p><strong>Quantity: </strong><span>&nbsp;'+amount+'個</span>&nbsp;&nbsp;&nbsp;';	
+		str += '<strong>Delivery Fee: </strong><span>&nbsp;'+shipping+'￦</span>&nbsp;&nbsp;&nbsp;';
+		str	+= '<strong>Unit Price: </strong><span>&nbsp;' + price + '￦</span></p>';
+		str += '<h5><strong>Payment Price:<span>&nbsp;' + finalPrice + '￦</strong></span></h5>'; 
 		str += '<span class="glyphicon glyphicon-exclamation-remove"></span>';
 		
 		$(".selected_option").html(str);
 	});
 	
-	//장바구니에 넣기
+	//Putting my cartList.
 	$(".btn-cart").click(function(){
 			
 		if(member_id.length == 0){ alert('You should Login.'); return; }
@@ -94,32 +95,32 @@ $(document).ready(function() {
 		<td align="center">
 			<table style=" width:500px; height:450px;">
 				<tr align="center">
-					<td width="80">&nbsp;&nbsp;商品番号: </td>
+					<td width="80">&nbsp;&nbsp;No: </td>
 					<td width="160">${productDetail.product_idx}</td>
 				</tr>
 				<tr align="center">
-					<td width="80">&nbsp;&nbsp;商品名: </td>
+					<td width="80">&nbsp;&nbsp;Product Name: </td>
 					<td width="160">${productDetail.product_name}</td>
 				</tr>
 				<tr align="center">
-					<td width="80">&nbsp;&nbsp;価格: </td>
+					<td width="80">&nbsp;&nbsp;Unit Price: </td>
 					<td width="160"><fmt:formatNumber value="${productDetail.product_price}" pattern="###,###,###"/>￦</td>
 				</tr>
 				<tr align="center">
-					<td width="80">&nbsp;&nbsp;送料: </td>
+					<td width="80">&nbsp;&nbsp;Delivery Fee: </td>
 					<td width="160">3,000￦</td>
 					
 				</tr>
 				<tr align="center">
-					<td width="80">&nbsp;&nbsp;保管方法: </td>
+					<td width="80">&nbsp;&nbsp;Storage Method: </td>
 					<td width="160">${productDetail.storage_method }</td>
 				</tr>
 				<tr align="center">
-					<td width="80">&nbsp;&nbsp;賞味期限: </td>
+					<td width="80">&nbsp;&nbsp;Expiry date: </td>
 					<td width="160">${productDetail.expiration_date }</td>
 				</tr>
 				<tr align="center">
-					<td width="80">&nbsp;&nbsp;仕入れ数量: </td>
+					<td width="80">&nbsp;&nbsp;Purchase Quantity: </td>
 					<td width="160">
 						<!-- 해당 제품 장바구니 담기 -->
 						<input type="number" name="amount" value="${amount}" placeholder="0" min="1" max="999" class="numBox" id="select_count">個
@@ -133,7 +134,7 @@ $(document).ready(function() {
 						<div class="selected_option" style="height:90px; text-align: right;"></div> 
 						<div class="btn-group-justified" style="text-align: center;" >
 						 	<div class="btn btn-group">
-								<button type="button" class="btn btn-danger btn-cart">買い物かごに入れる</button>
+								<button type="button" class="btn btn-danger btn-cart">Put My CartList !!</button>
 							</div>
 						</div>
 					</td>

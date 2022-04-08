@@ -15,7 +15,7 @@ public class RestAPIController {
 	@Autowired
 	private MemberService memberService;
 	
-	//아이디 중복체크
+	//Duplicate Checking ID
 	@GetMapping("/member/checkID/{member_id}")
 	public String checkID(@PathVariable String member_id) {
 		boolean chck = memberService.checkID(member_id);

@@ -8,14 +8,14 @@ import lombok.Data;
 @Data
 public class CartDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private int cart_idx;    //장바구니 인덱스 
-	private String member_id; //장바구니 주인의 아이디
-	private String member_name; //장바구니 주인의 이름     
-	private int product_idx;    //장바구니 안에 있는 상품의 인덱스 
-	private String product_name; //장바구니안에있는 상품의 이름     
-	private int price; //상품단가
-	private int amount;//수량
-	private int totalPrice;//총액 = 단가 x 수량
+	private int cart_idx;   
+	private String member_id; 
+	private String member_name; 
+	private int product_idx;    
+	private String product_name;    
+	private int price; 
+	private int amount;
+	private int totalPrice; 
 	private String product_img; 
 	private Date regdate; 
 
@@ -45,7 +45,6 @@ public class CartDTO implements Serializable{
 			return false;
 		return true;
 	}
-
 
 
 	public CartDTO(int cart_idx, String member_id, String member_name, int product_idx, String product_name, int price,
