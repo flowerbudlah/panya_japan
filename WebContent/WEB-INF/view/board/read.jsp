@@ -56,8 +56,7 @@ ul{list-style:none;}
           </div>
                
 <hr/>
-<!-- 댓글시작 -->
-<!--댓글 목록불러오기 -->
+<!-- comment -->
 <div class="reply">
 	<ul>
 	<c:forEach var="reply" items="${reply}" >
@@ -76,7 +75,7 @@ ul{list-style:none;}
 	</ul>
 </div>
 
-<!-- 로그인 한 회원에게만 댓글 작성폼이 보이게 처리 -->
+<!--Only member who sign in this site can see the below button(Creating comments)-->
 <c:if test="${loginMemberDTO.memberLogin == true }">    
 <div>
 	<form method="post" action="${root}board/reply/write">
@@ -85,7 +84,7 @@ ul{list-style:none;}
 		<input type="hidden" id="relyer_id" name="replyer_id" value="${loginMemberDTO.member_id }">
 		<textarea name="reply_content" id="reply_content" class="form-control" rows="3" style="resize:none" placeholder="댓글을 입력해주세요! 고운말을 써주세요!"></textarea>
 		<div class="text-right">
-		<button type="submit" class="btn btn-success btn-sm" style="text-align:right;">Creating comments</button>
+			<button type="submit" class="btn btn-success btn-sm" style="text-align:right;">Creating comments</button>
 		</div>
 	</form>
 </div>

@@ -63,13 +63,11 @@ h5:active{color: gray;}
 								<fmt:formatNumber value="${vo.price }" pattern="###,###,###"/>￦
 							</td>
 							<td style="text-align: center;">
-							<%--수량과 수량변경에 대한 --%>
 							<form action='${root }mypage/cart/cartlist/updateAmount' method='post' modelAttribute="updateAmountCartDTO">
 								<input type="hidden" name="cart_idx" value="${vo.cart_idx }"/>
 								<input type="number" name="amount" value="${vo.amount }" min="1" max="999"/>個(or set)
 							<button type="submit" class="btn btn-link" >Change</button>
 							</form>
-							<%--수량변경 관련 끝 --%>
 							</td>
 							<td style="text-align: center;">
 								<fmt:formatNumber value="${vo.price*vo.amount }" pattern="###,###,###"/> ￦
@@ -90,7 +88,7 @@ h5:active{color: gray;}
 			</c:choose>
 		</tbody>
 	</table>
-<%--주문정보입력 테이블 --%>
+<%--Table of order information --%>
 <table class="table table-hover" style="width: 100%; margin: auto; border-bottom: 1px solid #D5D5D5;">
 <thead>
 	<tr>
@@ -135,9 +133,9 @@ h5:active{color: gray;}
 		<td colspan="2"></td>
 		<td colspan="2">Sender's Address: </td>
 		<td colspan="3">
-			<input type="text" name="sender_postcode" id="postcode" placeholder="郵便番号" style="width:150px;">
-			<input type="button" class="btn btn-primary btn-sm" id="searchAdd" value="郵便番号を探す" ><br>
-			<input type="text" name="sender_address" placeholder="詳しい住所(Detail Address)" id="roadAddress" style="width:600px;"/>
+			<input type="text" name="sender_postcode" id="postcode" placeholder="Postal Code" style="width:150px;">
+			<input type="button" class="btn btn-warning btn-sm" id="searchAdd" value="Find Postal Code" ><br>
+			<input type="text" name="sender_address" placeholder="Detail Address" id="roadAddress" style="width:600px;"/>
 		</td>
 	</tr>
 	<tr class="recipient">
@@ -158,24 +156,24 @@ h5:active{color: gray;}
 		<td colspan="2"></td>
 		<td colspan="2">Recipient's address: </td>
 		<td colspan="3">
-			<input type="text" name="recipient_postcode" id="postcode2" placeholder="郵便番号" style="width:150px;">
-			<input type="button" id="searchAdd2" value="郵便番号を探す"  class="btn btn-info btn-sm"><br>
-			<input type="text" name="recipient_address" placeholder="詳しい住所(Detail Address)" id="roadAddress2" style="width:600px;"/>
+			<input type="text" name="recipient_postcode" id="postcode2" placeholder="Postal Code" style="width:150px;">
+			<input type="button" id="searchAdd2" value="Find Postal code"  class="btn btn-warning btn-sm"><br>
+			<input type="text" name="recipient_address" placeholder="Detail Address" id="roadAddress2" style="width:600px;"/>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2"></td>
 		<td colspan="2">Memo: </td>
 		<td colspan="3">
-			<textarea style="width:600px; resize: none;" name="memo" placeholder="注文決済配送に関するメモはこちらに入力してください。"></textarea>
+			<textarea style="width:600px; resize: none;" name="memo" placeholder="Please, write important things such as Precautions when delivering. Everything that you want to say is ok! "></textarea>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2"></td>
 		<td colspan="2">Payment Method</td>
 		<td colspan="3">
-			<input type="radio" name="payment_method" value="クレジットカード">Credit card<br>
-			<input type="radio" name="payment_method" value="口座に入金">Account deposit
+			<input type="radio" name="payment_method" value="Credit Card">Credit card<br>
+			<input type="radio" name="payment_method" value="Account Deposit">Account deposit
 		</td>
 	</tr>
 

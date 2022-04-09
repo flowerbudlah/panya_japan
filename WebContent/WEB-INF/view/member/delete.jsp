@@ -27,7 +27,6 @@
 		})
 </script>
 <body>
-<!-- 상단메뉴 -->
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp"/>
 <!-- 본문내용 -->
@@ -54,8 +53,6 @@
 	
 </div>
 </div>
-<!-- 하단정보 -->
 <c:import url="/WEB-INF/view/include/bottom_info.jsp"/>
 </body>
 </html>
-

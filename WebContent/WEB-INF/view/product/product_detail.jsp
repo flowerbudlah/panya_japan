@@ -63,16 +63,16 @@ $(document).ready(function() {
 			data : data,
 			success : function(result) {
 				if (result.trim() == 'add_success') {
-					var check = confirm("買い物かごにこの品物が入れられました。");
+					var check = confirm("This product was put into your shopping cart.");
 						if (check) {//내 장바구니로 이동! 
 							location.assign("${root}mypage/cart/cartlist/"+member_id);
 						}
 				} else if (result.trim() == 'already_existed') {
-						alert("すでに 買い物かごに この品物は 入っています。");
+						alert("This Product is already in your shopping cart.");
 				}
 			}
-		}); //아작스 끝
-	}); //장바구니 넣기 부분 
+		}); //ajax
+	}); //ending putting my cartlist 
 		
 });
 </script>
@@ -83,12 +83,11 @@ $(document).ready(function() {
 <body>
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp"/>
-<!-- 내용 -->
-<div align="center">
+<!-- content -->
+<div align="center"  style="margin-bottom: 50px;" >
 <div class="container" style="margin-top:50px; margin-bottom: 200px; ">
-<!-- 시작 -->
 <table class="entire">
-	<tr><!-- 상품 사진 출력 영역 -->
+	<tr>
 		<td>
 			<img src="${root }image/product/${productDetail.product_img}" width="500px" height="450px" alt="${productDetail.product_name}">
 		</td>
@@ -146,16 +145,16 @@ $(document).ready(function() {
 <!-- 끝 -->
 
 </div>
-<!-- 상품삭제버튼과 정보수정버튼은 관리자에게만 보인다. -->
+<!-- The administrator only can see -->
 <c:choose>
-	<c:when test="${loginMemberDTO.member_id eq 'admin'}"><%--관리자가 로그인을 한 경우(공지사항 게시판의 경우는 관리자만 사용가능하다. ) --%>
-		<a href="${root }product/modify?category_idx=${productDetail.category_idx}&product_idx=${productDetail.product_idx}" class="btn btn-secondary btn-sm" style="color:white">この商品情報修正</a>
-		<a href="${root }product/delete?category_idx=${productDetail.category_idx}&product_idx=${productDetail.product_idx}" class="btn btn-dark btn-sm" style="color:white">この商品を削除</a>
+	<c:when test="${loginMemberDTO.member_id eq 'admin'}">
+		<a href="${root }product/modify?category_idx=${productDetail.category_idx}&product_idx=${productDetail.product_idx}" class="btn btn-warning btn-sm" style="color:white">Modification of this product information</a>
+		<a href="${root }product/delete?category_idx=${productDetail.category_idx}&product_idx=${productDetail.product_idx}" class="btn btn-success btn-sm" style="color:white">Delete product</a>
 	</c:when>
 	<c:otherwise></c:otherwise>
 </c:choose>
 </div>
-<!-- 하단정보 -->
+<!-- bottom information -->
 <c:import url="/WEB-INF/view/include/bottom_info.jsp" />
 </body>
 </html>

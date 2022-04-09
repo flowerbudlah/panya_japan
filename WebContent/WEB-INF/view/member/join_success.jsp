@@ -2,6 +2,6 @@
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="root" value="${pageContext.request.contextPath }/"/>
 <script type="text/javascript">
-	alert('員登録が完了しました。');
+	alert('Sign up is complete.');
 	location.href='${root}member/login'
 </script>

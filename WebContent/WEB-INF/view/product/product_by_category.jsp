@@ -26,7 +26,6 @@ table{ margin: 0 auto; width:1200px; position: relative; font-family: 'Single Da
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp" />
 <div class="container" style="margin-top:50px; margin-bottom:50px; margin-left:0px;">
-<!--상품전시 부분  -->
 <ul class="test">
 <c:set var="i" value="0" />
 <c:set var="j" value="3" />
@@ -60,7 +59,7 @@ table{ margin: 0 auto; width:1200px; position: relative; font-family: 'Single Da
 <c:choose>
 	<c:when test="${loginMemberDTO.member_id eq 'admin'}">
 		<div class="col-sm-3">
-			<a href="${root }product/upload" class="btn btn-danger btn-block" style="color:white">新しい商品登録</a>
+			<a href="${root }product/upload" class="btn btn-danger btn-block" style="color:white">Uploading New Product</a>
 		</div>
 	</c:when>
 	<c:otherwise>
@@ -69,7 +68,6 @@ table{ margin: 0 auto; width:1200px; position: relative; font-family: 'Single Da
 </div>
 
 
-<!-- 하단 정보부분 -->
 </div>
 <c:import url="/WEB-INF/view/include/bottom_info.jsp" />
 </body>

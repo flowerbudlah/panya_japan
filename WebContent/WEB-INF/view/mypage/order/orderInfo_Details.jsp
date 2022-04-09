@@ -25,11 +25,10 @@ td{width:700px; text-align: left; }
 </style>
 </head>
 <body>
-<!--상단메뉴 -->
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp" />
 <div class="container text-center" style="margin-top:50px">
-<!-- 내용 -->
+<!-- content -->
 <div class="orderInfo">
 	<c:forEach items="${allInformationAboutOrder}" var="allInformationAboutOrder" varStatus="status">
 	<c:if test="${status.first}">
@@ -86,7 +85,7 @@ td{width:700px; text-align: left; }
     </c:forEach>
 </div>
 <br><br>
-<!-- 상세상품정보 -->
+<!-- Product detail informaition-->
 <ul class="orderView">
 <c:forEach items="${allInformationAboutOrder}" var="allInformationAboutOrder">     
 	<li>
@@ -112,8 +111,6 @@ td{width:700px; text-align: left; }
 	</li>     
 </c:forEach>
 </ul>
-
-<!-- 하단정보 -->
 </div>
 <c:import url="/WEB-INF/view/include/bottom_info.jsp" />
 </body>

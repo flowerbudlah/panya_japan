@@ -56,7 +56,6 @@ td{text-align:center; border: 1px solid gray;}
 	</c:forEach>
 	</tbody>
 </table> 
-
 </div>
 <c:import url="/WEB-INF/view/include/bottom_info.jsp" />
 </body>

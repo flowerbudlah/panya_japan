@@ -12,7 +12,7 @@
 <body>
 
 <script>
-	alert('Logout..');
+	alert('Log-Out');
 	location.href='${root}main';
 </script>
 

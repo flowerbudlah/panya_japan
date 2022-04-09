@@ -21,60 +21,55 @@
 <body>
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp"/>
-<!-- 본문내용 -->
+<!-- Body content -->
 <div class="container" style="margin: 100px;">
 	<div class="row">
 		<div class="col-sm-3"></div>
 			<div class="col-sm-7">
-			
-			
-			
-<form:form action="${root }product/upload_proc" method="post" modelAttribute="newProductDTO" enctype="multipart/form-data">
-	<div class="form-group">
-		<form:label path="category_idx">Category:&nbsp;&nbsp;&nbsp;</form:label>
-		<form:select path="category_idx">
-				<form:option value="1">Bread</form:option>
-				<form:option value="2">Cake</form:option>
-				<form:option value="3">etc</form:option>
-		</form:select>
-	</div>
-	<div class="form-group">
-		<form:label path="product_name">Product Name: </form:label>
-		<form:input path="product_name" class="form-control" />
-		 <form:errors path="product_name" style="color:red;"/>
-	</div>
-	<div class="form-group">
-		<form:label path="product_price">Unit Price: </form:label>
-		<form:input path="product_price" class="form-control"/>
-		<form:errors path="product_price" style="color:red;"/>
-	</div>
-	<div class="form-group">
-		<form:label path="storage_method">Storage Method: </form:label>
-		<form:input path="storage_method" class="form-control"/>
-		 <form:errors path="storage_method" style="color:red;"/>
-	</div>
-	<div class="form-group">
-		<form:label path="expiration_date">Expiration date: </form:label>
-		<form:input path="expiration_date" class="form-control"/>
-		<form:errors path="expiration_date" style="color:red;"/>
-	</div>
-	<div class="form-group">
-		<form:label path ="product_image_file">Attached Image</form:label>
-		<form:input type="file" path="product_image_file" class="form-control" accept="image/*"/>
-		<form:errors path="product_image_file" style="color:red;"/>
-	</div>
-	<div class="form-group">
-		<div class="text-right">
-			<form:button class="btn btn-danger">Completed</form:button>
-		</div>
-	</div>
-</form:form>
-
-
+			<form:form action="${root }product/upload_proc" method="post" modelAttribute="newProductDTO" enctype="multipart/form-data">
+			<div class="form-group">
+				<form:label path="category_idx">Category:&nbsp;&nbsp;&nbsp;</form:label>
+				<form:select path="category_idx">
+					<form:option value="1">Bread</form:option>
+					<form:option value="2">Cake</form:option>
+					<form:option value="3">etc</form:option>
+				</form:select>
+			</div>
+			<div class="form-group">
+				<form:label path="product_name">Product Name: </form:label>
+				<form:input path="product_name" class="form-control" />
+		 		<form:errors path="product_name" style="color:red;"/>
+			</div>
+			<div class="form-group">
+				<form:label path="product_price">Unit Price: </form:label>
+				<form:input path="product_price" class="form-control"/>
+				<form:errors path="product_price" style="color:red;"/>
+			</div>
+			<div class="form-group">
+				<form:label path="storage_method">Storage Method: </form:label>
+				<form:input path="storage_method" class="form-control"/>
+		 		<form:errors path="storage_method" style="color:red;"/>
+			</div>
+			<div class="form-group">
+				<form:label path="expiration_date">Expiration date: </form:label>
+				<form:input path="expiration_date" class="form-control"/>
+				<form:errors path="expiration_date" style="color:red;"/>
+			</div>
+			<div class="form-group">
+				<form:label path ="product_image_file">Attached Image</form:label>
+				<form:input type="file" path="product_image_file" class="form-control" accept="image/*"/>
+				<form:errors path="product_image_file" style="color:red;"/>
+			</div>
+			<div class="form-group">
+				<div class="text-right">
+					<form:button class="btn btn-danger">Completed</form:button>
+				</div>
+			</div>
+		</form:form>
 		</div>
 	</div>
 </div>
-<!-- 하단정보 -->
+<!-- bottom information -->
 <c:import url="/WEB-INF/view/include/bottom_info.jsp" />
 </body>
 </html>

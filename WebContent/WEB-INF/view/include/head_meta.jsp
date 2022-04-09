@@ -31,7 +31,7 @@ a:visited{ color: black;  }
 				<li><a href="${root }member/logout" style="color:black;">ログアウト</a></li>
 			</c:when>
         	<c:otherwise>
-        		<li><a href="${root }member/join" style="color:black;">会員登録(無料)</a></li>
+        		<li><a href="${root }member/join" style="color:black;">会員登録</a></li>
         		<li><a href="${root }member/login" style="color:black;">ログイン</a></li>
         	</c:otherwise>    
 		</c:choose>

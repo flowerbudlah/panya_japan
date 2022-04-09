@@ -24,7 +24,7 @@
 <div class="container" style="margin-top:50px; margin-bottom:50px;">
 	<div class="row">
 		<div class="col-sm-3"></div>
-		<div class="col-sm-7"><h5>会員情報の変更<br>(This page is the form to change your membership information. )</h5>
+		<div class="col-sm-7"><h5>会員情報の変更</h5>
 			<div class="card shadow-none">
 				<div class="card-body">
 					<form:form action='${root }member/modify_proc' method='post' modelAttribute="modifyMemberDTO">
@@ -92,8 +92,8 @@
 </div>
 <!--하단정보-->
 <c:import url="/WEB-INF/view/include/bottom_info.jsp"/>
-<%--주소 api --%>
-<%--우편번호 --%>
+<%--Daum address api --%>
+<%--postal code--%>
 <script>
 function postcode() {
     new daum.Postcode({
@@ -125,7 +125,6 @@ $("#searchAdd").click(function(event) {
 
 });
 </script>
-
 </body>
 </html>
     

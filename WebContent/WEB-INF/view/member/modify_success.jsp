@@ -2,6 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath }/" />
 <script>
-	alert('会員情報が変更されました。');
+	alert('Your Membership Infomation was modfied successfully.');
 	location.href = '${root}member/modify';
 </script>

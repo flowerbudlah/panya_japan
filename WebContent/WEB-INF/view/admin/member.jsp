@@ -51,7 +51,7 @@ td{text-align:center; border: 1px solid gray;}
 				<td style="text-align: center;">${allMemberList.member_tel }</td>
 				<td style="text-align: center;">${allMemberList.member_address }</td>
 				<td style="text-align: center;">${allMemberList.member_email}</td>
-				<td style="text-align: center;">${allMemberList.registerDate }</td>
+				<td style="text-align: center;"><fmt:formatDate pattern="yyyy-MM-dd(E) HH:mm:ss" value="${allMemberList.registerDate }"/></td>
 			</tr>
 		</c:forEach>
 		</tbody>

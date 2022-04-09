@@ -13,7 +13,6 @@ public class MemberDTO {
 	private int member_idx; 
 	
 	@Size(min=2, max=30)
-	@Pattern(regexp = "[a-zA-Z]*")
 	private String member_name; 	
 	
 	@Size(min=2, max=20)

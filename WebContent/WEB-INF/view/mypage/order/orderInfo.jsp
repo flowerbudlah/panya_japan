@@ -21,23 +21,21 @@ h4:active{color: gray;}
 </style>
 </head>
 <body>
-<!--상단메뉴 -->
 <c:import url="/WEB-INF/view/include/head_meta.jsp" />
 <c:import url="/WEB-INF/view/include/top_menu.jsp" />
+<!-- content -->
 <div class="container text-center" style="margin-top:100px; margin-bottom:100px;">
-<!-- 내용 -->
-<h4>${loginMemberDTO.member_name } お客様の<strong>注文·決済·配送情報</strong>です。</h4>
+<h4>
+Hello, ${loginMemberDTO.member_name }! <br>
+This page shows your order, payment and delivery informaton. 
+</h4>
 <c:choose>
 	<c:when test="${orderPaymentList != null}">
 		<c:forEach items="${orderPaymentList}" var="orderPaymentList">
 		<table style="border: 1px solid lightgray; width:100%;" >
 			<tr>
 				<th>Order number</th>
- 				<td>
- 				<a href="${root }mypage/order/orderInfo_Details?order_idx=${orderPaymentList.order_idx}">
- 				${orderPaymentList.order_idx}
- 				</a>
- 				</td>
+ 				<td><a href="${root }mypage/order/orderInfo_Details?order_idx=${orderPaymentList.order_idx}">${orderPaymentList.order_idx}</a></td>
 			</tr>
 			<tr>
 				<th>Order Date</th>
@@ -74,8 +72,9 @@ h4:active{color: gray;}
 				<th>Delivery status</th>
  				<td><strong>${orderPaymentList.circumstance}</strong>
  					<p class="attention">
- 					※決済完了後の配送準備前には100%払い戻しが可能です。 配送の準備後は返品受付を行います。
-					<br>ご返品ご希望の場合は、ご連絡ください。 (Tel. +82-2-313-1132)
+ 						※ You can get a 100% refund before delivery starts after payment is completed. 
+ 						<br>But You can return it after starting delivery.
+ 						<br>Please contact me if you want to return it. (Tel. +82-10-5824-9508)
  					</p>
  				</td> 
 			</tr>
@@ -83,11 +82,14 @@ h4:active{color: gray;}
 		</c:forEach>
 	</c:when>
 	<c:otherwise>
-		<p>${loginMemberDTO.member_name }お客様はまだ 注文·決済を 完了した内訳が ありません。<br>You haven't placed an order yet.</p>
+		<p>
+			There is no information about order, payment, and delivery. <br>
+			I think that You haven't placed an order yet.
+		</p>
 	</c:otherwise>
 </c:choose>
-<!-- 하단정보 -->
 </div>
+<!-- bottom information -->
 <c:import url="/WEB-INF/view/include/bottom_info.jsp" />
 </body>
 </html>

@@ -34,7 +34,7 @@ function checkID(){
           		alert('You can use this  ID..');
           		$('#inputMemberID').val('true');
         	}else{
-          		alert('The ID is used by another user. You had better other ID..');  
+          		alert('The ID is used by another user. You had better other ID.');  
           		$('#inputMemberID').val('false');
           }
       	}
